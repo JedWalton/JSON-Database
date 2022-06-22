@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
-
         Socket socket = getSocket();
         DataInputStream input = new DataInputStream(socket.getInputStream());
         DataOutputStream output = new DataOutputStream(socket.getOutputStream());
@@ -24,17 +23,14 @@ public class Main {
         System.out.println("Received: " + input.readUTF());
     }
 
+
     private static Socket getSocket() throws IOException {
         String address = "127.0.0.1";
         int port = 23456;
-        Socket socket = getSocket(address, port);
+        Socket socket = new Socket(InetAddress.getByName(address), port);
         System.out.println("Client started!");
         return socket;
     }
 
-    private static Socket getSocket(String address, int port) throws IOException {
-        return new Socket(InetAddress.getByName(address), port);
-
-    }
 
 }

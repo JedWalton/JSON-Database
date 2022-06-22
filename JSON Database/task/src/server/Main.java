@@ -15,26 +15,32 @@ public class Main {
             System.out.println(arg);
         }
         DatabaseController databaseController = new DatabaseController();
+        databaseController.processUserInput();
 
 
+        Socket socket = getSocket();
+        DataInputStream input = new DataInputStream(socket.getInputStream());
+        DataOutputStream output  = new DataOutputStream(socket.getOutputStream());
+        readAndWrite(input, output);
+
+        databaseController.processUserInput();
+
+
+    }
+
+    private static void readAndWrite(DataInputStream input, DataOutputStream output) throws IOException {
+        System.out.println("Received: " + input.readUTF());
+        System.out.print("Sent: " + "A record # N was sent!");
+        output.writeUTF("A record # N was sent!");
+
+    }
+
+    private static Socket getSocket() throws IOException {
         String address = "127.0.0.1";
         int port = 23456;
         ServerSocket server = new ServerSocket(port, 50, InetAddress.getByName(address));
         System.out.println("Server started!");
         Socket socket = server.accept();
-        DataInputStream input = new DataInputStream(socket.getInputStream());
-        DataOutputStream output  = new DataOutputStream(socket.getOutputStream());
-
-
-        String readUTFInput = input.readUTF();
-        String serverResponse = "A record # N was sent!";
-        System.out.println("Received: " + readUTFInput);
-
-        System.out.print("Sent: " + serverResponse);
-        output.writeUTF(serverResponse);
-
-        databaseController.processUserInput();
-
-
+        return socket;
     }
 }

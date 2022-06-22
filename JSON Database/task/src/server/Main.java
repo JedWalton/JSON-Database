@@ -11,6 +11,9 @@ import java.net.Socket;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        for (String arg : args) {
+            System.out.println(arg);
+        }
         DatabaseController databaseController = new DatabaseController();
 
 
@@ -26,9 +29,12 @@ public class Main {
         String readUTFInput = input.readUTF();
         String serverResponse = "A record # N was sent!";
         System.out.println("Received: " + readUTFInput);
+
         System.out.print("Sent: " + serverResponse);
         output.writeUTF(serverResponse);
 
         databaseController.processUserInput();
+
+
     }
 }

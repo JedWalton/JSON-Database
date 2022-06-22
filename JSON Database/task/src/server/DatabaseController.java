@@ -24,20 +24,29 @@ public class DatabaseController {
             String text = UserInput.getText(userInputLine);
 
 
-            if (id > 99 || id < 0) {
-                System.out.println("ERROR");
-                continue;
-            }
+            if (idInRange(id)) continue;
 
-            if(command.equals("set")) {
-                Commands.setCommand(id, text);
-            } else if (command.equals("get")) {
-                Commands.getCommand(id);
-            } else if (command.equals("delete")) {
-                Commands.deleteCommand(id);
-            } else if(command.equals("exit")) {
-                Commands.exit();
-            }
+            commandLogic(command, id, text);
         }
+    }
+
+    private void commandLogic(String command, int id, String text) {
+        if (command.equals("set")) {
+            Commands.setCommand(id, text);
+        } else if (command.equals("get")) {
+            Commands.getCommand(id);
+        } else if (command.equals("delete")) {
+            Commands.deleteCommand(id);
+        } else if (command.equals("exit")) {
+            Commands.exit();
+        }
+    }
+
+    private boolean idInRange(int id) {
+        if (id > 99 || id < 0) {
+            System.out.println("ERROR");
+            return true;
+        }
+        return false;
     }
 }

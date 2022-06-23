@@ -1,46 +1,29 @@
 package client;
 
-
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.InetAddress;
+import java.io.*;
 import java.net.Socket;
 
 public class Main {
+    private static final String SERVER_ADDRESS = "127.0.0.1";
+    private static final int SERVER_PORT = 34522;
 
-    public static void main(String[] args) throws IOException {
-
-        Socket socket = getSocket();
-        DataInputStream input = new DataInputStream(socket.getInputStream());
-        DataOutputStream output = new DataOutputStream(socket.getOutputStream());
-
-        String toSendToServer = getToSendToServer();
-        sendMessageToServer(output, toSendToServer);
-        received(input);
-    }
-
-    private static void sendMessageToServer(DataOutputStream output, String toSendToServer) throws IOException {
-        output.writeUTF(toSendToServer);
-    }
-
-    private static String getToSendToServer() {
-        String toSendToServer = "Give me a record of # N";
+    public static void main(String[] args) {
         System.out.println("Client started!");
-        System.out.print("Sent: " + toSendToServer);
-        return toSendToServer;
-    }
+        try (
+                Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
+                DataInputStream input = new DataInputStream(socket.getInputStream());
+                ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream())
+        ) {
+            output.writeObject(args);
+            StringBuilder builder = new StringBuilder();
+            for (String value : args) {
+                builder.append(value).append(" ");
+            }
 
-    private static void received(DataInputStream input) throws IOException {
-        System.out.println("Received: " + input.readUTF());
+            System.out.println("Sent: " + builder.toString().trim());
+            System.out.println("Received: " + input.readUTF());
+        } catch (IOException e) {
+            System.out.println("Error! The server is offline.");
+        }
     }
-
-    private static Socket getSocket() throws IOException {
-        String address = "127.0.0.1";
-        int port = 23456;
-        Socket socket = new Socket(InetAddress.getByName(address), port);
-        System.out.println("Client started!");
-        return socket;
-    }
-
 }

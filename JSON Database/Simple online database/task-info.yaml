@@ -1,17 +1,5 @@
 type: edu
 files:
-- name: src/client/Main.java
-  visible: true
-  text: |
-    package client;
-
-    public class Main {
-
-        public static void main(String[] args) {
-            System.out.println("Hello, world!");
-        }
-    }
-  learner_created: false
 - name: src/server/Main.java
   visible: true
   text: |
@@ -31,53 +19,6 @@ files:
 
     public class CommandNotFoundException extends RuntimeException {
 
-    }
-  learner_created: true
-- name: src/server/DatabaseController.java
-  visible: true
-  text: |
-    package server;
-
-    import server.utils.Commands;
-    import server.utils.UserInput;
-
-    import java.util.Arrays;
-
-    public class DatabaseController {
-
-        public static String[] database;
-
-
-        public DatabaseController() {
-            database = new String[100];
-            Arrays.fill(database, "");
-        }
-
-
-        public void processUserInput() {
-            while (true) {
-                String[] userInputLine = UserInput.getUserInputLine();
-                String command = UserInput.getCommand(userInputLine);
-                int id = UserInput.getId(userInputLine);
-                String text = UserInput.getText(userInputLine);
-
-
-                if (id > 99 || id < 0) {
-                    System.out.println("ERROR");
-                    continue;
-                }
-
-                if(command.equals("set")) {
-                    Commands.setCommand(id, text);
-                } else if (command.equals("get")) {
-                    Commands.getCommand(id);
-                } else if (command.equals("delete")) {
-                    Commands.deleteCommand(id);
-                } else if(command.equals("exit")) {
-                    Commands.exit();
-                }
-            }
-        }
     }
   learner_created: true
 - name: src/server/utils/Commands.java
@@ -349,27 +290,27 @@ files:
         }
     }
   learner_created: false
-- name: test/server/utils/UserInputTest.java
+- name: src/client/Main.java
+  visible: true
+  text: |
+    package client;
+
+    public class Main {
+
+        public static void main(String[] args) {
+            System.out.println("Hello, world!");
+        }
+    }
+  learner_created: false
+- name: src/server/ArgsParser.java
+  visible: true
+  learner_created: true
+- name: src/server/Database.java
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5492#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #1
-
-    The server should stop when client sends &#39;exit&#39; request
-
-    Please find below the output of your program during this failed test.
-
-    ---
-
-    Arguments for Main: -t exit
-
-    Server started!
-    Client started!
-    Client started!
-    Sent: Give me a record of # NReceived: Give me a record of # N
-    Sent: A record # N was sent!Received: A record # N was sent!
-  time: Thu, 23 Jun 2022 01:45:15 UTC
+  message: Congratulations!
+  time: Thu, 23 Jun 2022 06:15:19 UTC
 record: 3

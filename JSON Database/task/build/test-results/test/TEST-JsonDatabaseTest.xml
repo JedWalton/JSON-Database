@@ -1,73 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-06-23T01:45:14" hostname="PC" time="0.099">
+<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-23T06:15:19" hostname="PC" time="0.193">
   <properties/>
-  <testcase name="start" classname="JsonDatabaseTest" time="0.099">
-    <failure message="java.lang.AssertionError: Wrong answer in test #1&#10;&#10;The server should stop when client sends 'exit' request&#10;&#10;Please find below the output of your program during this failed test.&#10;&#10;---&#10;&#10;Arguments for Main: -t exit&#10;&#10;Server started!&#10;Client started!&#10;Client started!&#10;Sent: Give me a record of # NReceived: Give me a record of # N&#10;Sent: A record # N was sent!Received: A record # N was sent!" type="java.lang.AssertionError">java.lang.AssertionError: Wrong answer in test #1
-
-The server should stop when client sends 'exit' request
-
-Please find below the output of your program during this failed test.
-
----
-
-Arguments for Main: -t exit
-
-Server started!
-Client started!
-Client started!
-Sent: Give me a record of # NReceived: Give me a record of # N
-Sent: A record # N was sent!Received: A record # N was sent!
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:155)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at jdk.proxy1/jdk.proxy1.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:176)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:133)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-</failure>
-  </testcase>
+  <testcase name="start" classname="JsonDatabaseTest" time="0.193"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 Server started!
 Client started!
+Sent: -t exit
+Received: [-t, exit]
+Request type: exit
+Cell index: 0
+Value: 
+Error! The server is offline.
+?[1;31m
+Start test 2?[0m
+Server started!
 Client started!
-Received: Give me a record of # N
-Sent: Give me a record of # NReceived: A record # N was sent!
+Sent: -t get -i 1
+Received: [-t, get, -i, 1]
+Request type: get
+Cell index: 1
+Value: 
+Received: ERROR
+Client started!
+Received: [-t, set, -i, 1, -m, Hello world!]
+Sent: -t set -i 1 -m Hello world!
+Request type: set
+Cell index: 1
+Value: Hello world!
+Received: OK
+Client started!
+Sent: -t set -i 1 -m HelloWorld!
+Received: [-t, set, -i, 1, -m, HelloWorld!]
+Request type: set
+Cell index: 1
+Value: HelloWorld!
+Received: OK
+Client started!
+Sent: -t get -i 1
+Received: [-t, get, -i, 1]
+Request type: get
+Cell index: 1
+Value: 
+Received: HelloWorld!
+Client started!
+Sent: -t delete -i 1
+Received: [-t, delete, -i, 1]
+Request type: delete
+Cell index: 1
+Value: 
+Received: OK
+Client started!
+Sent: -t delete -i 1
+Received: [-t, delete, -i, 1]
+Request type: delete
+Cell index: 1
+Value: 
+Received: OK
+Client started!
+Received: [-t, get, -i, 1]
+Sent: -t get -i 1
+Request type: get
+Cell index: 1
+Value: 
+Received: ERROR
+Client started!
+Sent: -t set -i 55 -m Some text here
+Received: [-t, set, -i, 55, -m, Some text here]
+Request type: set
+Cell index: 55
+Value: Some text here
+Received: OK
+Client started!
+Received: [-t, get, -i, 55]
+Sent: -t get -i 55
+Request type: get
+Cell index: 55
+Value: 
+Received: Some text here
+Client started!
+Received: [-t, get, -i, 56]
+Sent: -t get -i 56
+Request type: get
+Cell index: 56
+Value: 
+Received: ERROR
+Client started!
+Sent: -t delete -i 55
+Received: [-t, delete, -i, 55]
+Request type: delete
+Cell index: 55
+Value: 
+Received: OK
+Client started!
+Received: [-t, delete, -i, 56]
+Sent: -t delete -i 56
+Request type: delete
+Cell index: 56
+Value: 
+Received: OK
+Client started!
+Sent: -t delete -i 100
+Received: [-t, delete, -i, 100]
+Request type: delete
+Cell index: 100
+Value: 
+Received: OK
+Client started!
+Received: [-t, delete, -i, 1001]
+Sent: -t delete -i 1001
+Request type: delete
+Cell index: 1001
+Value: 
+Received: ERROR
+Client started!
+Received: [-t, exit]
+Sent: -t exit
+Request type: exit
+Cell index: 0
+Value: 
+Error! The server is offline.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

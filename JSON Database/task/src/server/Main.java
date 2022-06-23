@@ -1,45 +1,58 @@
 package server;
 
+import com.beust.jcommander.JCommander;
 
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.InetAddress;
+import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class Main {
+    private static final int SERVER_PORT = 34522;
 
-    public static void main(String[] args) throws IOException {
-        DatabaseController databaseController = new DatabaseController();
-
-
-        Socket socket = getSocket();
-        DataInputStream input = new DataInputStream(socket.getInputStream());
-        DataOutputStream output = new DataOutputStream(socket.getOutputStream());
-
-        receivedFromClient(input);
-        sendResponseToClient(output);
-
-        databaseController.processUserInput();
-    }
-
-    private static void receivedFromClient(DataInputStream input) throws IOException {
-        String readUTFInput = input.readUTF();
-        System.out.println("Received: " + readUTFInput);
-    }
-
-    private static Socket getSocket() throws IOException {
-        String address = "127.0.0.1";
-        int port = 23456;
-        ServerSocket server = new ServerSocket(port, 50, InetAddress.getByName(address));
+    public static void main(String[] args) {
+        Database database = new Database(1000);
         System.out.println("Server started!");
-        return server.accept();
-    }
+        try (ServerSocket server = new ServerSocket(SERVER_PORT)) {
+            while (true) {
+                try (
+                        Socket socket = server.accept();
+                        ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
+                        DataOutputStream output = new DataOutputStream(socket.getOutputStream())
+                ) {
+                    String[] clientArgs = (String[]) input.readObject();
+                    System.out.println("Received: " + Arrays.toString(clientArgs));
 
-    private static void sendResponseToClient(DataOutputStream output) throws IOException {
-        String serverResponse = "A record # N was sent!";
-        System.out.print("Sent: " + serverResponse);
-        output.writeUTF(serverResponse);
+                    ArgsParser argsParser = new ArgsParser();
+                    JCommander.newBuilder()
+                            .addObject(argsParser)
+                            .build()
+                            .parse(clientArgs);
+
+                    String requestType = argsParser.getRequestType();
+                    int cellIndex = argsParser.getCellIndex();
+                    String value = argsParser.getValue();
+                    System.out.printf(
+                            "Request type: %s\n" +
+                                    "Cell index: %s\n" +
+                                    "Value: %s\n", requestType, cellIndex, value);
+
+                    switch (requestType) {
+                        case ("set"):
+                            output.writeUTF(database.set(cellIndex, value)); break;
+                        case ("get"):
+                            output.writeUTF(database.get(cellIndex)); break;
+                        case ("delete"):
+                            output.writeUTF(database.delete(cellIndex)); break;
+                        case ("exit"):
+                            System.exit(0);
+                    }
+                }
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

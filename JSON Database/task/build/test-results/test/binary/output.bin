@@ -2,6 +2,117 @@
 Start test 1[0m
 Server started!
 Client started!
+Sent: -t exit
+Received: [-t, exit]
+Request type: exit
+Cell index: 0
+Value: 
+Error! The server is offline.
+[1;31m
+Start test 2[0m
+Server started!
 Client started!
-"Received: Give me a record of # N
->Sent: Give me a record of # NReceived: A record # N was sent!
+Sent: -t get -i 1
+Received: [-t, get, -i, 1]
+Request type: get
+Cell index: 1
+Value: 
+Received: ERROR
+Client started!
+-Received: [-t, set, -i, 1, -m, Hello world!]
+"Sent: -t set -i 1 -m Hello world!
+Request type: set
+Cell index: 1
+Value: Hello world!
+Received: OK
+Client started!
+!Sent: -t set -i 1 -m HelloWorld!
+,Received: [-t, set, -i, 1, -m, HelloWorld!]
+Request type: set
+Cell index: 1
+Value: HelloWorld!
+Received: OK
+Client started!
+Sent: -t get -i 1
+Received: [-t, get, -i, 1]
+Request type: get
+Cell index: 1
+Value: 
+Received: HelloWorld!
+Client started!
+Sent: -t delete -i 1
+Received: [-t, delete, -i, 1]
+Request type: delete
+Cell index: 1
+Value: 
+Received: OK
+Client started!
+Sent: -t delete -i 1
+Received: [-t, delete, -i, 1]
+Request type: delete
+Cell index: 1
+Value: 
+Received: OK
+Client started!
+Received: [-t, get, -i, 1]
+Sent: -t get -i 1
+Request type: get
+Cell index: 1
+Value: 
+Received: ERROR
+Client started!
+%Sent: -t set -i 55 -m Some text here
+0Received: [-t, set, -i, 55, -m, Some text here]
+Request type: set
+Cell index: 55
+Value: Some text here
+Received: OK
+Client started!
+Received: [-t, get, -i, 55]
+Sent: -t get -i 55
+Request type: get
+Cell index: 55
+Value: 
+Received: Some text here
+Client started!
+Received: [-t, get, -i, 56]
+Sent: -t get -i 56
+Request type: get
+Cell index: 56
+Value: 
+Received: ERROR
+Client started!
+Sent: -t delete -i 55
+Received: [-t, delete, -i, 55]
+Request type: delete
+Cell index: 55
+Value: 
+Received: OK
+Client started!
+Received: [-t, delete, -i, 56]
+Sent: -t delete -i 56
+Request type: delete
+Cell index: 56
+Value: 
+Received: OK
+Client started!
+Sent: -t delete -i 100
+ Received: [-t, delete, -i, 100]
+Request type: delete
+Cell index: 100
+Value: 
+Received: OK
+Client started!
+!Received: [-t, delete, -i, 1001]
+Sent: -t delete -i 1001
+Request type: delete
+Cell index: 1001
+Value: 
+Received: ERROR
+Client started!
+Received: [-t, exit]
+Sent: -t exit
+Request type: exit
+Cell index: 0
+Value: 
+Error! The server is offline.

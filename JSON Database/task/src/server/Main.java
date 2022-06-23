@@ -26,7 +26,6 @@ public class Main {
 
     private static void receivedFromClient(DataInputStream input) throws IOException {
         String readUTFInput = input.readUTF();
-
         System.out.println("Received: " + readUTFInput);
     }
 

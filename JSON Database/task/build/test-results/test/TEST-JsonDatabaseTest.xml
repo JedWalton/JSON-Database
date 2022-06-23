@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-23T01:39:16" hostname="PC" time="0.148">
+  <properties/>
+  <testcase name="start" classname="JsonDatabaseTest" time="0.148"/>
+  <system-out><![CDATA[?[1;31m
+Start test 1?[0m
+Server started!
+Client started!
+Client started!
+Received: Give me a record of # N
+Sent: Give me a record of # NReceived: A record # N was sent!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -11,18 +11,29 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-
         Socket socket = getSocket();
         DataInputStream input = new DataInputStream(socket.getInputStream());
         DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 
-
-        System.out.println("Client started!");
-        System.out.print("Sent: " + "Give me a record of # N");
-        output.writeUTF("Give me a record of # N");
-        System.out.println("Received: " + input.readUTF());
+        String toSendToServer = getToSendToServer();
+        sendMessageToServer(output, toSendToServer);
+        received(input);
     }
 
+    private static void sendMessageToServer(DataOutputStream output, String toSendToServer) throws IOException {
+        output.writeUTF(toSendToServer);
+    }
+
+    private static String getToSendToServer() {
+        String toSendToServer = "Give me a record of # N";
+        System.out.println("Client started!");
+        System.out.print("Sent: " + toSendToServer);
+        return toSendToServer;
+    }
+
+    private static void received(DataInputStream input) throws IOException {
+        System.out.println("Received: " + input.readUTF());
+    }
 
     private static Socket getSocket() throws IOException {
         String address = "127.0.0.1";
@@ -31,6 +42,5 @@ public class Main {
         System.out.println("Client started!");
         return socket;
     }
-
 
 }

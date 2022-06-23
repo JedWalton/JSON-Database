@@ -291,6 +291,17 @@ files:
         }
     }
   learner_created: false
+- name: test/server/utils/UserInputTest.java
+  visible: true
+  text: |
+    package server.utils;
+
+    import junit.framework.TestCase;
+
+    public class UserInputTest extends TestCase {
+
+    }
+  learner_created: false
 feedback_link: https://hyperskill.org/learn/step/5495#comment
 status: Unchecked
 record: -1

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.193s</div>
+<div class="counter">0.476s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">start</td>
-<td class="success">0.193s</td>
+<td class="success">0.476s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -91,120 +91,83 @@
 Start test 1?[0m
 Server started!
 Client started!
-Sent: -t exit
-Received: [-t, exit]
-Request type: exit
-Cell index: 0
-Value: 
-Error! The server is offline.
+Sent: {&quot;type&quot;:&quot;exit&quot;}
+Received: {&quot;type&quot;:&quot;exit&quot;}
+Received: {&quot;response&quot;:&quot;OK&quot;}
+Sent: {&quot;response&quot;:&quot;OK&quot;}
 ?[1;31m
 Start test 2?[0m
 Server started!
 Client started!
-Sent: -t get -i 1
-Received: [-t, get, -i, 1]
-Request type: get
-Cell index: 1
-Value: 
-Received: ERROR
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
+Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
+Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Received: [-t, set, -i, 1, -m, Hello world!]
-Sent: -t set -i 1 -m Hello world!
-Request type: set
-Cell index: 1
-Value: Hello world!
-Received: OK
+Received: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;Hello world!&quot;}
+Sent: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;Hello world!&quot;}
+Sent: {&quot;response&quot;:&quot;OK&quot;}
+Received: {&quot;response&quot;:&quot;OK&quot;}
 Client started!
-Sent: -t set -i 1 -m HelloWorld!
-Received: [-t, set, -i, 1, -m, HelloWorld!]
-Request type: set
-Cell index: 1
-Value: HelloWorld!
-Received: OK
+Received: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;HelloWorld!&quot;}
+Sent: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;HelloWorld!&quot;}
+Received: {&quot;response&quot;:&quot;OK&quot;}
+Sent: {&quot;response&quot;:&quot;OK&quot;}
 Client started!
-Sent: -t get -i 1
-Received: [-t, get, -i, 1]
-Request type: get
-Cell index: 1
-Value: 
-Received: HelloWorld!
+Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
+Sent: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;HelloWorld!&quot;}
+Received: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;HelloWorld!&quot;}
 Client started!
-Sent: -t delete -i 1
-Received: [-t, delete, -i, 1]
-Request type: delete
-Cell index: 1
-Value: 
-Received: OK
+Received: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;1&quot;}
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;1&quot;}
+Sent: {&quot;response&quot;:&quot;OK&quot;}
+Received: {&quot;response&quot;:&quot;OK&quot;}
 Client started!
-Sent: -t delete -i 1
-Received: [-t, delete, -i, 1]
-Request type: delete
-Cell index: 1
-Value: 
-Received: OK
+Received: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;1&quot;}
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;1&quot;}
+Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Received: [-t, get, -i, 1]
-Sent: -t get -i 1
-Request type: get
-Cell index: 1
-Value: 
-Received: ERROR
+Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
+Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Sent: -t set -i 55 -m Some text here
-Received: [-t, set, -i, 55, -m, Some text here]
-Request type: set
-Cell index: 55
-Value: Some text here
-Received: OK
+Received: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;text&quot;,&quot;value&quot;:&quot;Some text here&quot;}
+Sent: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;text&quot;,&quot;value&quot;:&quot;Some text here&quot;}
+Sent: {&quot;response&quot;:&quot;OK&quot;}
+Received: {&quot;response&quot;:&quot;OK&quot;}
 Client started!
-Received: [-t, get, -i, 55]
-Sent: -t get -i 55
-Request type: get
-Cell index: 55
-Value: 
-Received: Some text here
+Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;text&quot;}
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;text&quot;}
+Sent: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;Some text here&quot;}
+Received: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;Some text here&quot;}
 Client started!
-Received: [-t, get, -i, 56]
-Sent: -t get -i 56
-Request type: get
-Cell index: 56
-Value: 
-Received: ERROR
+Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;56&quot;}
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;56&quot;}
+Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Sent: -t delete -i 55
-Received: [-t, delete, -i, 55]
-Request type: delete
-Cell index: 55
-Value: 
-Received: OK
+Received: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;56&quot;}
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;56&quot;}
+Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Received: [-t, delete, -i, 56]
-Sent: -t delete -i 56
-Request type: delete
-Cell index: 56
-Value: 
-Received: OK
+Received: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;100&quot;}
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;100&quot;}
+Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Sent: -t delete -i 100
-Received: [-t, delete, -i, 100]
-Request type: delete
-Cell index: 100
-Value: 
-Received: OK
+Received: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;That key doesn\u0027t exist&quot;}
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;That key doesn\u0027t exist&quot;}
+Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Received: [-t, delete, -i, 1001]
-Sent: -t delete -i 1001
-Request type: delete
-Cell index: 1001
-Value: 
-Received: ERROR
-Client started!
-Received: [-t, exit]
-Sent: -t exit
-Request type: exit
-Cell index: 0
-Value: 
-Error! The server is offline.
+Received: {&quot;type&quot;:&quot;exit&quot;}
+Sent: {&quot;type&quot;:&quot;exit&quot;}
+Sent: {&quot;response&quot;:&quot;OK&quot;}
+Received: {&quot;response&quot;:&quot;OK&quot;}
 </pre>
 </span>
 </div>
@@ -216,7 +179,7 @@ Error! The server is offline.
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.3.3</a> at 23 Jun 2022, 07:15:19</p>
+<a href="http://www.gradle.org">Gradle 7.3.3</a> at 24 Jun 2022, 03:02:50</p>
 </div>
 </div>
 </body>

@@ -1,125 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-23T06:15:19" hostname="PC" time="0.193">
+<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-24T02:02:49" hostname="PC" time="0.476">
   <properties/>
-  <testcase name="start" classname="JsonDatabaseTest" time="0.193"/>
+  <testcase name="start" classname="JsonDatabaseTest" time="0.476"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 Server started!
 Client started!
-Sent: -t exit
-Received: [-t, exit]
-Request type: exit
-Cell index: 0
-Value: 
-Error! The server is offline.
+Sent: {"type":"exit"}
+Received: {"type":"exit"}
+Received: {"response":"OK"}
+Sent: {"response":"OK"}
 ?[1;31m
 Start test 2?[0m
 Server started!
 Client started!
-Sent: -t get -i 1
-Received: [-t, get, -i, 1]
-Request type: get
-Cell index: 1
-Value: 
-Received: ERROR
+Sent: {"type":"get","key":"1"}
+Received: {"type":"get","key":"1"}
+Sent: {"response":"ERROR","reason":"No such key"}
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Received: [-t, set, -i, 1, -m, Hello world!]
-Sent: -t set -i 1 -m Hello world!
-Request type: set
-Cell index: 1
-Value: Hello world!
-Received: OK
+Received: {"type":"set","key":"1","value":"Hello world!"}
+Sent: {"type":"set","key":"1","value":"Hello world!"}
+Sent: {"response":"OK"}
+Received: {"response":"OK"}
 Client started!
-Sent: -t set -i 1 -m HelloWorld!
-Received: [-t, set, -i, 1, -m, HelloWorld!]
-Request type: set
-Cell index: 1
-Value: HelloWorld!
-Received: OK
+Received: {"type":"set","key":"1","value":"HelloWorld!"}
+Sent: {"type":"set","key":"1","value":"HelloWorld!"}
+Received: {"response":"OK"}
+Sent: {"response":"OK"}
 Client started!
-Sent: -t get -i 1
-Received: [-t, get, -i, 1]
-Request type: get
-Cell index: 1
-Value: 
-Received: HelloWorld!
+Received: {"type":"get","key":"1"}
+Sent: {"type":"get","key":"1"}
+Sent: {"response":"OK","value":"HelloWorld!"}
+Received: {"response":"OK","value":"HelloWorld!"}
 Client started!
-Sent: -t delete -i 1
-Received: [-t, delete, -i, 1]
-Request type: delete
-Cell index: 1
-Value: 
-Received: OK
+Received: {"type":"delete","key":"1"}
+Sent: {"type":"delete","key":"1"}
+Sent: {"response":"OK"}
+Received: {"response":"OK"}
 Client started!
-Sent: -t delete -i 1
-Received: [-t, delete, -i, 1]
-Request type: delete
-Cell index: 1
-Value: 
-Received: OK
+Received: {"type":"delete","key":"1"}
+Sent: {"type":"delete","key":"1"}
+Sent: {"response":"ERROR","reason":"No such key"}
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Received: [-t, get, -i, 1]
-Sent: -t get -i 1
-Request type: get
-Cell index: 1
-Value: 
-Received: ERROR
+Received: {"type":"get","key":"1"}
+Sent: {"type":"get","key":"1"}
+Sent: {"response":"ERROR","reason":"No such key"}
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Sent: -t set -i 55 -m Some text here
-Received: [-t, set, -i, 55, -m, Some text here]
-Request type: set
-Cell index: 55
-Value: Some text here
-Received: OK
+Received: {"type":"set","key":"text","value":"Some text here"}
+Sent: {"type":"set","key":"text","value":"Some text here"}
+Sent: {"response":"OK"}
+Received: {"response":"OK"}
 Client started!
-Received: [-t, get, -i, 55]
-Sent: -t get -i 55
-Request type: get
-Cell index: 55
-Value: 
-Received: Some text here
+Received: {"type":"get","key":"text"}
+Sent: {"type":"get","key":"text"}
+Sent: {"response":"OK","value":"Some text here"}
+Received: {"response":"OK","value":"Some text here"}
 Client started!
-Received: [-t, get, -i, 56]
-Sent: -t get -i 56
-Request type: get
-Cell index: 56
-Value: 
-Received: ERROR
+Received: {"type":"get","key":"56"}
+Sent: {"type":"get","key":"56"}
+Sent: {"response":"ERROR","reason":"No such key"}
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Sent: -t delete -i 55
-Received: [-t, delete, -i, 55]
-Request type: delete
-Cell index: 55
-Value: 
-Received: OK
+Received: {"type":"delete","key":"56"}
+Sent: {"type":"delete","key":"56"}
+Sent: {"response":"ERROR","reason":"No such key"}
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Received: [-t, delete, -i, 56]
-Sent: -t delete -i 56
-Request type: delete
-Cell index: 56
-Value: 
-Received: OK
+Received: {"type":"delete","key":"100"}
+Sent: {"type":"delete","key":"100"}
+Sent: {"response":"ERROR","reason":"No such key"}
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Sent: -t delete -i 100
-Received: [-t, delete, -i, 100]
-Request type: delete
-Cell index: 100
-Value: 
-Received: OK
+Received: {"type":"delete","key":"That key doesn\u0027t exist"}
+Sent: {"type":"delete","key":"That key doesn\u0027t exist"}
+Sent: {"response":"ERROR","reason":"No such key"}
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Received: [-t, delete, -i, 1001]
-Sent: -t delete -i 1001
-Request type: delete
-Cell index: 1001
-Value: 
-Received: ERROR
-Client started!
-Received: [-t, exit]
-Sent: -t exit
-Request type: exit
-Cell index: 0
-Value: 
-Error! The server is offline.
+Received: {"type":"exit"}
+Sent: {"type":"exit"}
+Sent: {"response":"OK"}
+Received: {"response":"OK"}
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

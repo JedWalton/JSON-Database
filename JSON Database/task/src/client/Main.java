@@ -1,29 +1,29 @@
 package client;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.InetAddress;
 import java.net.Socket;
 
 public class Main {
-    private static final String SERVER_ADDRESS = "127.0.0.1";
-    private static final int SERVER_PORT = 34522;
+    private static final String ADDRESS = "127.0.0.1";
+    private static final int PORT = 6991;
 
     public static void main(String[] args) {
+        String command = new CommandParser(args).serializeToJson();
         System.out.println("Client started!");
-        try (
-                Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
-                DataInputStream input = new DataInputStream(socket.getInputStream());
-                ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream())
-        ) {
-            output.writeObject(args);
-            StringBuilder builder = new StringBuilder();
-            for (String value : args) {
-                builder.append(value).append(" ");
-            }
 
-            System.out.println("Sent: " + builder.toString().trim());
+        try (Socket socket = new Socket(InetAddress.getByName(ADDRESS), PORT);
+             DataInputStream input = new DataInputStream(socket.getInputStream());
+             DataOutputStream output = new DataOutputStream(socket.getOutputStream())
+        ) {
+            output.writeUTF(command);
+            System.out.println("Sent: " + command);
             System.out.println("Received: " + input.readUTF());
+
         } catch (IOException e) {
-            System.out.println("Error! The server is offline.");
+            e.printStackTrace();
         }
     }
 }

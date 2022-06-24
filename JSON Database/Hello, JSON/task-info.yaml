@@ -24,49 +24,6 @@ files:
         }
     }
   learner_created: false
-- name: test/JsonFinder.java
-  visible: false
-  text: |
-    import org.hyperskill.hstest.exception.outcomes.WrongAnswer;
-
-    import java.util.regex.Matcher;
-    import java.util.regex.Pattern;
-
-    public class JsonFinder {
-
-        private static final Pattern pattern = Pattern.compile("\\{.+}");
-
-        public static String findRequestJsonObject(String output) {
-
-            Matcher matcher = pattern.matcher(output);
-
-            while (matcher.find()) {
-                String json = matcher.group();
-                if (json.contains("type")) {
-                    return json;
-                }
-            }
-
-            throw new WrongAnswer("Can't find request JSON object in the output.\n" +
-                    "It should contain 'type' key");
-        }
-
-        public static String findResponseJsonObject(String output) {
-
-            Matcher matcher = pattern.matcher(output);
-
-            while (matcher.find()) {
-                String json = matcher.group();
-                if (json.contains("response")) {
-                    return json;
-                }
-            }
-
-            throw new WrongAnswer("Can't find request JSON object in the output.\n" +
-                    "It should contain 'response' key");
-        }
-    }
-  learner_created: false
 - name: test/JsonDatabaseTest.java
   visible: false
   text: |
@@ -391,17 +348,126 @@ files:
 
     }
   learner_created: false
-- name: test/server/utils/UserInputTest.java
+- name: src/client/ArgsInput.java
   visible: true
+  learner_created: true
+- name: test/JsonFinder.java
+  visible: false
   text: |
-    package server.utils;
+    import org.hyperskill.hstest.exception.outcomes.WrongAnswer;
 
-    import junit.framework.TestCase;
+    import java.util.regex.Matcher;
+    import java.util.regex.Pattern;
 
-    public class UserInputTest extends TestCase {
+    public class JsonFinder {
 
+        private static final Pattern pattern = Pattern.compile("\\{.+}");
+
+        public static String findRequestJsonObject(String output) {
+
+            Matcher matcher = pattern.matcher(output);
+
+            while (matcher.find()) {
+                String json = matcher.group();
+                if (json.contains("type")) {
+                    return json;
+                }
+            }
+
+            throw new WrongAnswer("Can't find request JSON object in the output.\n" +
+                    "It should contain 'type' key");
+        }
+
+        public static String findResponseJsonObject(String output) {
+
+            Matcher matcher = pattern.matcher(output);
+
+            while (matcher.find()) {
+                String json = matcher.group();
+                if (json.contains("response")) {
+                    return json;
+                }
+            }
+
+            throw new WrongAnswer("Can't find request JSON object in the output.\n" +
+                    "It should contain 'response' key");
+        }
     }
   learner_created: false
+- name: src/server/SimulatedDB.java
+  visible: true
+  text: |
+    package server;
+
+    import java.util.Arrays;
+
+    public class Database {
+        private final String[] database;
+        private static final String successMessage = "OK";
+        private static final String errorMessage = "ERROR";
+
+        public Database(int size) {
+            this.database = new String[size];
+            Arrays.fill(this.database, "");
+        }
+
+        public String get(int index) {
+            if (index - 1 >= 0 && index - 1 < database.length && !database[index - 1].equals("")) {
+                return database[index - 1];
+            } else {
+                return errorMessage;
+            }
+        }
+
+        public String set(int index, String value) {
+            if (index - 1 >= 0 && index - 1 < database.length) {
+                database[index - 1] = value;
+                return successMessage;
+            } else {
+                return errorMessage;
+            }
+        }
+
+        public String delete(int index) {
+            if (index - 1 >= 0 && index - 1 < database.length) {
+                database[index - 1] = "";
+                return successMessage;
+            } else {
+                return errorMessage;
+            }
+        }
+    }
+  learner_created: true
+- name: src/server/Server.java
+  visible: true
+  learner_created: true
+- name: src/server/Commands/SetCommand.java
+  visible: true
+  learner_created: true
+- name: src/server/Commands/GetCommand.java
+  visible: true
+  learner_created: true
+- name: src/server/Commands/DeleteCommand.java
+  visible: true
+  learner_created: true
+- name: src/server/Commands/ExitCommand.java
+  visible: true
+  learner_created: true
+- name: src/server/Commands/Command.java
+  visible: true
+  learner_created: true
+- name: src/server/Commands/CommandController.java
+  visible: true
+  learner_created: true
+- name: src/server/Commands/BaseCommand.java
+  visible: true
+  learner_created: true
+- name: src/client/CommandParser.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5493#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 24 Jun 2022 02:02:50 UTC
+record: 4

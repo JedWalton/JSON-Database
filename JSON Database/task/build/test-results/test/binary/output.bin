@@ -4,16 +4,18 @@
 Client started!
 Sent: {"type":"exit"}
 Received: {"type":"exit"}
-Received: {"response":"OK"}
 Sent: {"response":"OK"}
+Received: {"response":"OK"}
 [1;31m
 Start test 2[0m
+[1;31m
+Start test 3[0m
 Server started!
 Client started!
 Sent: {"type":"get","key":"1"}
 #Received: {"type":"get","key":"1"}
-2Sent: {"response":"ERROR","reason":"No such key"}
 6Received: {"response":"ERROR","reason":"No such key"}
+2Sent: {"response":"ERROR","reason":"No such key"}
 Client started!
 :Received: {"type":"set","key":"1","value":"Hello world!"}
 6Sent: {"type":"set","key":"1","value":"Hello world!"}
@@ -22,8 +24,8 @@
 Client started!
 9Received: {"type":"set","key":"1","value":"HelloWorld!"}
 5Sent: {"type":"set","key":"1","value":"HelloWorld!"}
-Received: {"response":"OK"}
 Sent: {"response":"OK"}
+Received: {"response":"OK"}
 Client started!
 #Received: {"type":"get","key":"1"}
 Sent: {"type":"get","key":"1"}
@@ -72,6 +74,26 @@
 Client started!
 @Received: {"type":"delete","key":"That key doesn\u0027t exist"}
 <Sent: {"type":"delete","key":"That key doesn\u0027t exist"}
+2Sent: {"response":"ERROR","reason":"No such key"}
+6Received: {"response":"ERROR","reason":"No such key"}
+Client started!
+5Received: {"type":"set","key":"name","value":"Kate"}
+1Sent: {"type":"set","key":"name","value":"Kate"}
+Sent: {"response":"OK"}
+Received: {"response":"OK"}
+Client started!
+&Received: {"type":"get","key":"name"}
+"Sent: {"type":"get","key":"name"}
+'Sent: {"response":"OK","value":"Kate"}
++Received: {"response":"OK","value":"Kate"}
+Client started!
+)Received: {"type":"delete","key":"name"}
+%Sent: {"type":"delete","key":"name"}
+Sent: {"response":"OK"}
+Received: {"response":"OK"}
+Client started!
+&Received: {"type":"get","key":"name"}
+"Sent: {"type":"get","key":"name"}
 2Sent: {"response":"ERROR","reason":"No such key"}
 6Received: {"response":"ERROR","reason":"No such key"}
 Client started!

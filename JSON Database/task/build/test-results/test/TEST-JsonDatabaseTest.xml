@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-24T02:02:49" hostname="PC" time="0.476">
+<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-24T02:57:42" hostname="PC" time="0.485">
   <properties/>
-  <testcase name="start" classname="JsonDatabaseTest" time="0.476"/>
+  <testcase name="start" classname="JsonDatabaseTest" time="0.485"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 Server started!
 Client started!
 Sent: {"type":"exit"}
 Received: {"type":"exit"}
-Received: {"response":"OK"}
 Sent: {"response":"OK"}
+Received: {"response":"OK"}
 ?[1;31m
 Start test 2?[0m
+?[1;31m
+Start test 3?[0m
 Server started!
 Client started!
 Sent: {"type":"get","key":"1"}
 Received: {"type":"get","key":"1"}
-Sent: {"response":"ERROR","reason":"No such key"}
 Received: {"response":"ERROR","reason":"No such key"}
+Sent: {"response":"ERROR","reason":"No such key"}
 Client started!
 Received: {"type":"set","key":"1","value":"Hello world!"}
 Sent: {"type":"set","key":"1","value":"Hello world!"}
@@ -26,8 +28,8 @@ Received: {"response":"OK"}
 Client started!
 Received: {"type":"set","key":"1","value":"HelloWorld!"}
 Sent: {"type":"set","key":"1","value":"HelloWorld!"}
-Received: {"response":"OK"}
 Sent: {"response":"OK"}
+Received: {"response":"OK"}
 Client started!
 Received: {"type":"get","key":"1"}
 Sent: {"type":"get","key":"1"}
@@ -76,6 +78,26 @@ Received: {"response":"ERROR","reason":"No such key"}
 Client started!
 Received: {"type":"delete","key":"That key doesn\u0027t exist"}
 Sent: {"type":"delete","key":"That key doesn\u0027t exist"}
+Sent: {"response":"ERROR","reason":"No such key"}
+Received: {"response":"ERROR","reason":"No such key"}
+Client started!
+Received: {"type":"set","key":"name","value":"Kate"}
+Sent: {"type":"set","key":"name","value":"Kate"}
+Sent: {"response":"OK"}
+Received: {"response":"OK"}
+Client started!
+Received: {"type":"get","key":"name"}
+Sent: {"type":"get","key":"name"}
+Sent: {"response":"OK","value":"Kate"}
+Received: {"response":"OK","value":"Kate"}
+Client started!
+Received: {"type":"delete","key":"name"}
+Sent: {"type":"delete","key":"name"}
+Sent: {"response":"OK"}
+Received: {"response":"OK"}
+Client started!
+Received: {"type":"get","key":"name"}
+Sent: {"type":"get","key":"name"}
 Sent: {"response":"ERROR","reason":"No such key"}
 Received: {"response":"ERROR","reason":"No such key"}
 Client started!

@@ -24,43 +24,6 @@ files:
         }
     }
   learner_created: false
-- name: test/JsonRequestBuilder.java
-  visible: false
-  text: |-
-    import com.google.gson.Gson;
-    import com.google.gson.JsonObject;
-
-    class JsonBuilder {
-
-        private final Gson gson = new Gson();
-        private final JsonObject jsonObject = new JsonObject();
-
-        private JsonBuilder() {
-        }
-
-        public static JsonBuilder newBuilder() {
-            return new JsonBuilder();
-        }
-
-        public JsonBuilder addValue(String key, String value) {
-            jsonObject.addProperty(key, value);
-            return this;
-        }
-
-        public JsonBuilder addJsonObject(String key, JsonObject object) {
-            jsonObject.add(key, object);
-            return this;
-        }
-
-        public String getAsString() {
-            return jsonObject.toString();
-        }
-
-        public JsonObject getAsJsonObject() {
-            return jsonObject;
-        }
-    }
-  learner_created: false
 - name: test/JsonDatabaseTest.java
   visible: false
   text: |
@@ -599,17 +562,337 @@ files:
         }
     }
   learner_created: false
-- name: test/server/utils/UserInputTest.java
+- name: src/server/Commands/Command.java
   visible: true
   text: |
-    package server.utils;
+    package server.Commands;
 
-    import junit.framework.TestCase;
+    public interface Command {
 
-    public class UserInputTest extends TestCase {
+        String execute();
 
+        default String printError() {
+            return "{\"response\":\"ERROR\",\"reason\":\"No such key\"}";
+        }
+
+        default String printOK() {
+            return "{\"response\":\"OK\"}";
+        }
+    }
+  learner_created: true
+- name: src/client/CommandParser.java
+  visible: true
+  text: |
+    package client;
+
+    import com.beust.jcommander.JCommander;
+    import com.beust.jcommander.Parameter;
+    import com.google.gson.Gson;
+
+    import java.util.LinkedHashMap;
+    import java.util.Map;
+
+    public class CommandParser {
+        @Parameter(names = "-t", description = "the type of the request")
+        private String requestType;
+        @Parameter(names = "-k", description = "the index of the cell")
+        private String indexOfCeil;
+        @Parameter(names = "-v", description = "the value to save in the database")
+        private String value;
+
+        public CommandParser(String[] iCommand) {
+            JCommander.newBuilder()
+                    .addObject(this)
+                    .build()
+                    .parse(iCommand);
+        }
+
+        public String serializeToJson() {
+            Map<String, String> command = new LinkedHashMap<>();
+            command.put("type", requestType);
+            command.put("key", indexOfCeil);
+            command.put("value", value);
+
+            return new Gson().toJson(command);
+        }
+    }
+  learner_created: true
+- name: src/server/Commands/CommandController.java
+  visible: true
+  text: |
+    package server.Commands;
+
+    import com.google.gson.Gson;
+    import server.SimulatedDB;
+
+
+    public class CommandController {
+        private BaseCommand baseCommand;
+        private BaseCommand command;
+
+        public BaseCommand getCommand() {
+            return baseCommand;
+        }
+
+        public void createCommand(String request) {
+            baseCommand = new Gson().newBuilder().excludeFieldsWithoutExposeAnnotation()
+                    .create().fromJson(request, BaseCommand.class);
+
+            switch (baseCommand.type) {
+                case "exit": {
+                    command = new ExitCommand();
+                    break;
+                }
+                case "set": {
+                    command = new SetCommand(baseCommand.key, baseCommand.value);
+                    break;
+                }
+                case "get": {
+                    command = new GetCommand(baseCommand.key);
+                    break;
+                }
+                case "delete": {
+                    command = new DeleteCommand(baseCommand.key);
+                    break;
+                }
+                default: {
+                    break;
+                }
+            }
+        }
+
+        public void setDataBase(SimulatedDB simulatedDB) {
+            baseCommand.setDataBase(simulatedDB.getDataBase());
+        }
+
+        public String executeCommand() {
+            return command.execute();
+        }
+    }
+  learner_created: true
+- name: src/server/Commands/DeleteCommand.java
+  visible: true
+  text: |
+    package server.Commands;
+
+    public class DeleteCommand extends BaseCommand {
+
+        DeleteCommand(String key) {
+            this.key = key;
+        }
+
+        @Override
+        public String execute() {
+            if (!dataBase.containsKey(key)) {
+                return printError();
+            } else {
+                dataBase.remove(key);
+                return printOK();
+            }
+        }
+    }
+  learner_created: true
+- name: src/server/Commands/ExitCommand.java
+  visible: true
+  text: |
+    package server.Commands;
+
+    public class ExitCommand extends BaseCommand {
+
+        @Override
+        public String execute() {
+            return printOK();
+        }
+    }
+  learner_created: true
+- name: src/server/Commands/SetCommand.java
+  visible: true
+  text: |
+    package server.Commands;
+
+    public class SetCommand extends BaseCommand {
+
+        SetCommand(String key, String value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        @Override
+        public String execute() {
+            dataBase.put(key,value);
+            return printOK();
+
+        }
+    }
+  learner_created: true
+- name: src/server/Commands/BaseCommand.java
+  visible: true
+  text: |
+    package server.Commands;
+
+    import com.google.gson.annotations.Expose;
+
+    import java.util.Map;
+
+    public class BaseCommand implements Command {
+        @Expose
+        protected String type;
+        @Expose
+        protected String key;
+        @Expose
+        protected String value;
+        protected static Map<String, String> dataBase;
+
+        public String getType() {
+            return this.type;
+        }
+
+        protected void setDataBase(Map dataBase) {
+            this.dataBase = dataBase;
+        }
+
+        @Override
+        public String execute() {
+            return printError();
+        }
+    }
+  learner_created: true
+- name: src/server/Commands/GetCommand.java
+  visible: true
+  text: |
+    package server.Commands;
+
+    public class GetCommand extends BaseCommand {
+
+        private String value;
+
+        GetCommand(String key) {
+            this.key = key;
+        }
+
+        @Override
+        public String printOK() {
+            return "{\"response\":\"OK\",\"value\":\"" + value + "\"}";
+        }
+
+        @Override
+        public String execute() {
+            if (!dataBase.containsKey(key)) {
+                return printError();
+            } else {
+                value = dataBase.get(key);
+                return printOK();
+            }
+        }
+    }
+  learner_created: true
+- name: test/JsonRequestBuilder.java
+  visible: false
+  text: |-
+    import com.google.gson.Gson;
+    import com.google.gson.JsonObject;
+
+    class JsonBuilder {
+
+        private final Gson gson = new Gson();
+        private final JsonObject jsonObject = new JsonObject();
+
+        private JsonBuilder() {
+        }
+
+        public static JsonBuilder newBuilder() {
+            return new JsonBuilder();
+        }
+
+        public JsonBuilder addValue(String key, String value) {
+            jsonObject.addProperty(key, value);
+            return this;
+        }
+
+        public JsonBuilder addJsonObject(String key, JsonObject object) {
+            jsonObject.add(key, object);
+            return this;
+        }
+
+        public String getAsString() {
+            return jsonObject.toString();
+        }
+
+        public JsonObject getAsJsonObject() {
+            return jsonObject;
+        }
     }
   learner_created: false
+- name: src/client/ClientArgs.java
+  visible: true
+  text: |
+    package client;
+
+    import com.google.gson.annotations.Expose;
+
+    public class ArgsInput {
+        @Expose
+        String type;
+        @Expose
+        int key;
+        @Expose
+        String value;
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public int getKey() {
+            return key;
+        }
+
+        public void setKey(int key) {
+            this.key = key;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+    }
+  learner_created: true
+- name: src/client/Client.java
+  visible: true
+  learner_created: true
+- name: src/server/JsonDatabase.java
+  visible: true
+  learner_created: true
+- name: src/server/Server.java
+  visible: true
+  learner_created: true
+- name: src/server/Session.java
+  visible: true
+  learner_created: true
+- name: src/server/JsonDbUtils.java
+  visible: true
+  learner_created: true
+- name: src/client/data/testSet.json
+  visible: true
+  learner_created: true
+- name: src/client/data/testDelete.json
+  visible: true
+  learner_created: true
+- name: src/server/data/db.json
+  visible: true
+  learner_created: true
+- name: src/client/data/testGet.json
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5494#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 24 Jun 2022 02:57:42 UTC
 record: -1

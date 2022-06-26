@@ -18,12 +18,12 @@ public class Main {
 
         System.out.println("Client Started");
 
-        CommandLineArgs cla = new CommandLineArgs();
-        JCommander jCommander = new JCommander(cla);
+        CommandLineArgs commandLineArgs = new CommandLineArgs();
+        JCommander jCommander = new JCommander(commandLineArgs);
         jCommander.setProgramName("JSON Database");
 
         JCommander.newBuilder()
-                .addObject(cla)
+                .addObject(commandLineArgs)
                 .build()
                 .parse(args);
 
@@ -32,7 +32,7 @@ public class Main {
                 DataInputStream input = new DataInputStream(socket.getInputStream());
                 DataOutputStream output = new DataOutputStream(socket.getOutputStream())
         ) {
-            String request = cla.toJson();
+            String request = commandLineArgs.toJson();
             output.writeUTF(request);
             System.out.printf("Sent: %s \n", request);
             System.out.print("Received: " + input.readUTF());

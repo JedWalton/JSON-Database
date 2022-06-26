@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.485s</div>
+<div class="counter">0.422s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">start</td>
-<td class="success">0.485s</td>
+<td class="success">0.422s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -90,106 +90,35 @@
 <pre>?[1;31m
 Start test 1?[0m
 Server started!
-Client started!
-Sent: {&quot;type&quot;:&quot;exit&quot;}
-Received: {&quot;type&quot;:&quot;exit&quot;}
-Sent: {&quot;response&quot;:&quot;OK&quot;}
-Received: {&quot;response&quot;:&quot;OK&quot;}
+Client Started
+Sent: {&quot;type&quot;:&quot;exit&quot;} 
 ?[1;31m
 Start test 2?[0m
 ?[1;31m
 Start test 3?[0m
 Server started!
-Client started!
-Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
-Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
-Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;Hello world!&quot;}
-Sent: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;Hello world!&quot;}
-Sent: {&quot;response&quot;:&quot;OK&quot;}
-Received: {&quot;response&quot;:&quot;OK&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;HelloWorld!&quot;}
-Sent: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;HelloWorld!&quot;}
-Sent: {&quot;response&quot;:&quot;OK&quot;}
-Received: {&quot;response&quot;:&quot;OK&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
-Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
-Sent: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;HelloWorld!&quot;}
-Received: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;HelloWorld!&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;1&quot;}
-Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;1&quot;}
-Sent: {&quot;response&quot;:&quot;OK&quot;}
-Received: {&quot;response&quot;:&quot;OK&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;1&quot;}
-Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;1&quot;}
-Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
-Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
-Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;text&quot;,&quot;value&quot;:&quot;Some text here&quot;}
-Sent: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;text&quot;,&quot;value&quot;:&quot;Some text here&quot;}
-Sent: {&quot;response&quot;:&quot;OK&quot;}
-Received: {&quot;response&quot;:&quot;OK&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;text&quot;}
-Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;text&quot;}
-Sent: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;Some text here&quot;}
-Received: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;Some text here&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;56&quot;}
-Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;56&quot;}
-Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;56&quot;}
-Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;56&quot;}
-Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;100&quot;}
-Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;100&quot;}
-Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;That key doesn\u0027t exist&quot;}
-Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;That key doesn\u0027t exist&quot;}
-Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;name&quot;,&quot;value&quot;:&quot;Kate&quot;}
-Sent: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;name&quot;,&quot;value&quot;:&quot;Kate&quot;}
-Sent: {&quot;response&quot;:&quot;OK&quot;}
-Received: {&quot;response&quot;:&quot;OK&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;name&quot;}
-Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;name&quot;}
-Sent: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;Kate&quot;}
-Received: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;Kate&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;name&quot;}
-Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;name&quot;}
-Sent: {&quot;response&quot;:&quot;OK&quot;}
-Received: {&quot;response&quot;:&quot;OK&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;name&quot;}
-Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;name&quot;}
-Sent: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
-Client started!
-Received: {&quot;type&quot;:&quot;exit&quot;}
-Sent: {&quot;type&quot;:&quot;exit&quot;}
-Sent: {&quot;response&quot;:&quot;OK&quot;}
-Received: {&quot;response&quot;:&quot;OK&quot;}
+Client Started
+Sent: {&quot;type&quot;:&quot;set&quot;,&quot;value&quot;:&quot;Hello world!&quot;,&quot;key&quot;:&quot;1&quot;} 
+Client Started
+Sent: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;person&quot;,&quot;value&quot;:{&quot;name&quot;:&quot;Elon Musk&quot;,&quot;car&quot;:{&quot;model&quot;:&quot;Tesla Roadster&quot;,&quot;year&quot;:&quot;2018&quot;},&quot;rocket&quot;:{&quot;name&quot;:&quot;Falcon 9&quot;,&quot;launches&quot;:&quot;87&quot;}}}
+ 
+Client Started
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:[&quot;person&quot;,&quot;name&quot;]}
+ 
+Client Started
+Sent: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:[&quot;person&quot;,&quot;rocket&quot;,&quot;launches&quot;],&quot;value&quot;:&quot;88&quot;}
+ 
+Client Started
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:[&quot;person&quot;]}
+ 
+Client Started
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:[&quot;person&quot;,&quot;car&quot;,&quot;year&quot;]}
+ 
+Client Started
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:[&quot;person&quot;]}
+ 
+Client Started
+Sent: {&quot;type&quot;:&quot;exit&quot;} 
 </pre>
 </span>
 </div>
@@ -201,7 +130,7 @@ Received: {&quot;response&quot;:&quot;OK&quot;}
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.3.3</a> at 24 Jun 2022, 03:57:42</p>
+<a href="http://www.gradle.org">Gradle 7.3.3</a> at 26 Jun 2022, 04:28:57</p>
 </div>
 </div>
 </body>

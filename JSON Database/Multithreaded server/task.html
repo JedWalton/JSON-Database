@@ -32,42 +32,42 @@ Lock writeLock = lock.writeLock();</code></pre>
 
 <p>Starting the server:</p>
 
-<pre><code class="language-no-highlight">&gt; java Main
+<pre><code class="language-no-highlight">&gt; java client.Main
 Server started!</code></pre>
 
 <p>Starting the clients:</p>
 
-<pre><code class="language-json">&gt; java Main -t get -k 1
+<pre><code class="language-json">&gt; java client.Main -t get -k 1
 Client started!
 Sent: {"type":"get","key":"1"}
 Received: {"response":"ERROR","reason":"No such key"}</code></pre>
 
-<pre><code class="language-json">&gt; java Main -t set -k 1 -v HelloWorld! 
+<pre><code class="language-json">&gt; java client.Main -t set -k 1 -v HelloWorld!
 Client started!
 Sent: {"type":"set","key":"1","value":"HelloWorld!"}
 Received: {"response":"OK"}</code></pre>
 
-<pre><code class="language-json">&gt; java Main -t get -k 1 
+<pre><code class="language-json">&gt; java client.Main -t get -k 1
 Client started!
 Sent: {"type":"get","key":"1"}
 Received: {"response":"OK","value":"HelloWorld!"}</code></pre>
 
-<pre><code class="language-json">&gt; java Main -in testSet.json 
+<pre><code class="language-json">&gt; java client.Main -in testSet.json
 Client started!
 Sent: {"type":"set","key":"name","value":"Kate"}
 Received: {"response":"OK"}</code></pre>
 
-<pre><code class="language-json">&gt; java Main -in testGet.json 
+<pre><code class="language-json">&gt; java client.Main -in testGet.json
 Client started!
 Sent: {"type":"get","key":"name"}
 Received: {"response":"OK","value":"Kate"}</code></pre>
 
-<pre><code class="language-json">&gt; java Main -in testDelete.json 
+<pre><code class="language-json">&gt; java client.Main -in testDelete.json
 Client started!
 Sent: {"type":"delete","key":"name"}
 Received: {"response":"OK"}</code></pre>
 
-<pre><code class="language-json">&gt; java Main -t exit 
+<pre><code class="language-json">&gt; java client.Main -t exit
 Client started!
 Sent: {"type":"exit"}
 Received: {"response":"OK"}</code></pre>

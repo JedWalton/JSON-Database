@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/210138/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Thu, 23 Jun 2022 23:00:32 UTC
+update_date: Sun, 26 Jun 2022 01:20:04 UTC
 stages:
 - id: 348
   step: 5490
@@ -22,7 +22,7 @@ stages:
   is_completed: true
 - id: 353
   step: 5495
-  is_completed: false
+  is_completed: true
 topics:
   0:
   - title: Write, compile, and run
@@ -89,8 +89,6 @@ topics:
     theory_id: 3507
   - title: Switch statement
     theory_id: 3504
-  - title: Characters
-    theory_id: 3514
   - title: Sizes and ranges
     theory_id: 3532
   - title: Type casting
@@ -105,18 +103,20 @@ topics:
     theory_id: 10570
   - title: Overloading
     theory_id: 3525
-  - title: String
-    theory_id: 3523
   - title: Primitive and reference types
     theory_id: 5035
   - title: Array
     theory_id: 3511
   - title: Arrays as parameters
     theory_id: 3594
-  - title: Final variables
-    theory_id: 7427
   - title: Iterating over arrays
     theory_id: 3602
+  - title: Characters
+    theory_id: 3514
+  - title: String
+    theory_id: 3523
+  - title: Final variables
+    theory_id: 7427
   - title: Errors in programs
     theory_id: 3536
   - title: What is an exception

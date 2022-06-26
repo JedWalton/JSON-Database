@@ -1,110 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-24T02:57:42" hostname="PC" time="0.485">
+<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-26T03:28:56" hostname="PC" time="0.422">
   <properties/>
-  <testcase name="start" classname="JsonDatabaseTest" time="0.485"/>
+  <testcase name="start" classname="JsonDatabaseTest" time="0.422"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 Server started!
-Client started!
-Sent: {"type":"exit"}
-Received: {"type":"exit"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
+Client Started
+Sent: {"type":"exit"} 
 ?[1;31m
 Start test 2?[0m
 ?[1;31m
 Start test 3?[0m
 Server started!
-Client started!
-Sent: {"type":"get","key":"1"}
-Received: {"type":"get","key":"1"}
-Received: {"response":"ERROR","reason":"No such key"}
-Sent: {"response":"ERROR","reason":"No such key"}
-Client started!
-Received: {"type":"set","key":"1","value":"Hello world!"}
-Sent: {"type":"set","key":"1","value":"Hello world!"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-Received: {"type":"set","key":"1","value":"HelloWorld!"}
-Sent: {"type":"set","key":"1","value":"HelloWorld!"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-Received: {"type":"get","key":"1"}
-Sent: {"type":"get","key":"1"}
-Sent: {"response":"OK","value":"HelloWorld!"}
-Received: {"response":"OK","value":"HelloWorld!"}
-Client started!
-Received: {"type":"delete","key":"1"}
-Sent: {"type":"delete","key":"1"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-Received: {"type":"delete","key":"1"}
-Sent: {"type":"delete","key":"1"}
-Sent: {"response":"ERROR","reason":"No such key"}
-Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-Received: {"type":"get","key":"1"}
-Sent: {"type":"get","key":"1"}
-Sent: {"response":"ERROR","reason":"No such key"}
-Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-Received: {"type":"set","key":"text","value":"Some text here"}
-Sent: {"type":"set","key":"text","value":"Some text here"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-Received: {"type":"get","key":"text"}
-Sent: {"type":"get","key":"text"}
-Sent: {"response":"OK","value":"Some text here"}
-Received: {"response":"OK","value":"Some text here"}
-Client started!
-Received: {"type":"get","key":"56"}
-Sent: {"type":"get","key":"56"}
-Sent: {"response":"ERROR","reason":"No such key"}
-Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-Received: {"type":"delete","key":"56"}
-Sent: {"type":"delete","key":"56"}
-Sent: {"response":"ERROR","reason":"No such key"}
-Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-Received: {"type":"delete","key":"100"}
-Sent: {"type":"delete","key":"100"}
-Sent: {"response":"ERROR","reason":"No such key"}
-Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-Received: {"type":"delete","key":"That key doesn\u0027t exist"}
-Sent: {"type":"delete","key":"That key doesn\u0027t exist"}
-Sent: {"response":"ERROR","reason":"No such key"}
-Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-Received: {"type":"set","key":"name","value":"Kate"}
-Sent: {"type":"set","key":"name","value":"Kate"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-Received: {"type":"get","key":"name"}
-Sent: {"type":"get","key":"name"}
-Sent: {"response":"OK","value":"Kate"}
-Received: {"response":"OK","value":"Kate"}
-Client started!
-Received: {"type":"delete","key":"name"}
-Sent: {"type":"delete","key":"name"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-Received: {"type":"get","key":"name"}
-Sent: {"type":"get","key":"name"}
-Sent: {"response":"ERROR","reason":"No such key"}
-Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-Received: {"type":"exit"}
-Sent: {"type":"exit"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
+Client Started
+Sent: {"type":"set","value":"Hello world!","key":"1"} 
+Client Started
+Sent: {"type":"set","key":"person","value":{"name":"Elon Musk","car":{"model":"Tesla Roadster","year":"2018"},"rocket":{"name":"Falcon 9","launches":"87"}}}
+ 
+Client Started
+Sent: {"type":"get","key":["person","name"]}
+ 
+Client Started
+Sent: {"type":"set","key":["person","rocket","launches"],"value":"88"}
+ 
+Client Started
+Sent: {"type":"get","key":["person"]}
+ 
+Client Started
+Sent: {"type":"delete","key":["person","car","year"]}
+ 
+Client Started
+Sent: {"type":"get","key":["person"]}
+ 
+Client Started
+Sent: {"type":"exit"} 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

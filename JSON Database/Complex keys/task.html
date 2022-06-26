@@ -60,19 +60,19 @@
 
 <p>Starting the server:</p>
 
-<pre><code class="language-no-highlight">&gt; java Main
+<pre><code class="language-no-highlight">&gt; java client.Main
 Server started!</code></pre>
 
 <p>There is no need to format JSON in the output.</p>
 
 <p>Starting the clients:</p>
 
-<pre><code class="language-json">&gt; java Main -t set -k 1 -v "Hello world!" 
+<pre><code class="language-json">&gt; java client.Main -t set -k 1 -v "Hello world!"
 Client started!
 Sent: {"type":"set","key":"1","value":"Hello world!"}
 Received: {"response":"OK"}</code></pre>
 
-<pre><code class="language-json">&gt; java Main -in setFile.json 
+<pre><code class="language-json">&gt; java client.Main -in setFile.json
 Client started!
 Sent:
 {
@@ -92,17 +92,17 @@ Sent:
 }
 Received: {"response":"OK"}</code></pre>
 
-<pre><code class="language-json">&gt; java Main -in getFile.json 
+<pre><code class="language-json">&gt; java client.Main -in getFile.json
 Client started!
 Sent: {"type":"get","key":["person","name"]}
 Received: {"response":"OK","value":"Elon Musk"}</code></pre>
 
-<pre><code class="language-json">&gt; java Main -in updateFile.json 
+<pre><code class="language-json">&gt; java client.Main -in updateFile.json
 Client started!
 Sent: {"type":"set","key":["person","rocket","launches"],"value":"88"}
 Received: {"response":"OK"}</code></pre>
 
-<pre><code class="language-json">&gt; java Main -in secondGetFile.json 
+<pre><code class="language-json">&gt; java client.Main -in secondGetFile.json
 Client started!
 Sent: {"type":"get","key":["person"]}
 Received:
@@ -121,13 +121,13 @@ Received:
    }
 }</code></pre>
 
-<pre><code class="language-json">&gt; java Main -in deleteFile.json 
+<pre><code class="language-json">&gt; java client.Main -in deleteFile.json
 Client started!
 Sent: {"type":"delete","key":["person","car","year"]}
 Received: {"response":"OK"}
 </code></pre>
 
-<pre><code class="language-json">&gt; java Main -in secondGetFile.json 
+<pre><code class="language-json">&gt; java client.Main -in secondGetFile.json
 Client started!
 Sent: {"type":"get","key":["person"]}
 Received:
@@ -145,7 +145,7 @@ Received:
    }
 }</code></pre>
 
-<pre><code class="language-json">&gt; java Main -t exit 
+<pre><code class="language-json">&gt; java client.Main -t exit
 Client started!
 Sent: {"type":"exit"}
 Received: {"response":"OK"}</code></pre>

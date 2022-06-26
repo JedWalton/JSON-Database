@@ -1,103 +1,32 @@
 [1;31m
 Start test 1[0m
 Server started!
-Client started!
-Sent: {"type":"exit"}
-Received: {"type":"exit"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
+Client Started
+Sent: {"type":"exit"} 
 [1;31m
 Start test 2[0m
 [1;31m
 Start test 3[0m
 Server started!
-Client started!
-Sent: {"type":"get","key":"1"}
-#Received: {"type":"get","key":"1"}
-6Received: {"response":"ERROR","reason":"No such key"}
-2Sent: {"response":"ERROR","reason":"No such key"}
-Client started!
-:Received: {"type":"set","key":"1","value":"Hello world!"}
-6Sent: {"type":"set","key":"1","value":"Hello world!"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-9Received: {"type":"set","key":"1","value":"HelloWorld!"}
-5Sent: {"type":"set","key":"1","value":"HelloWorld!"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-#Received: {"type":"get","key":"1"}
-Sent: {"type":"get","key":"1"}
-.Sent: {"response":"OK","value":"HelloWorld!"}
-2Received: {"response":"OK","value":"HelloWorld!"}
-Client started!
-&Received: {"type":"delete","key":"1"}
-"Sent: {"type":"delete","key":"1"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-&Received: {"type":"delete","key":"1"}
-"Sent: {"type":"delete","key":"1"}
-2Sent: {"response":"ERROR","reason":"No such key"}
-6Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-#Received: {"type":"get","key":"1"}
-Sent: {"type":"get","key":"1"}
-2Sent: {"response":"ERROR","reason":"No such key"}
-6Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-?Received: {"type":"set","key":"text","value":"Some text here"}
-;Sent: {"type":"set","key":"text","value":"Some text here"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-&Received: {"type":"get","key":"text"}
-"Sent: {"type":"get","key":"text"}
-1Sent: {"response":"OK","value":"Some text here"}
-5Received: {"response":"OK","value":"Some text here"}
-Client started!
-$Received: {"type":"get","key":"56"}
- Sent: {"type":"get","key":"56"}
-2Sent: {"response":"ERROR","reason":"No such key"}
-6Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-'Received: {"type":"delete","key":"56"}
-#Sent: {"type":"delete","key":"56"}
-2Sent: {"response":"ERROR","reason":"No such key"}
-6Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-(Received: {"type":"delete","key":"100"}
-$Sent: {"type":"delete","key":"100"}
-2Sent: {"response":"ERROR","reason":"No such key"}
-6Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-@Received: {"type":"delete","key":"That key doesn\u0027t exist"}
-<Sent: {"type":"delete","key":"That key doesn\u0027t exist"}
-2Sent: {"response":"ERROR","reason":"No such key"}
-6Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-5Received: {"type":"set","key":"name","value":"Kate"}
-1Sent: {"type":"set","key":"name","value":"Kate"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-&Received: {"type":"get","key":"name"}
-"Sent: {"type":"get","key":"name"}
-'Sent: {"response":"OK","value":"Kate"}
-+Received: {"response":"OK","value":"Kate"}
-Client started!
-)Received: {"type":"delete","key":"name"}
-%Sent: {"type":"delete","key":"name"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
-Client started!
-&Received: {"type":"get","key":"name"}
-"Sent: {"type":"get","key":"name"}
-2Sent: {"response":"ERROR","reason":"No such key"}
-6Received: {"response":"ERROR","reason":"No such key"}
-Client started!
-Received: {"type":"exit"}
-Sent: {"type":"exit"}
-Sent: {"response":"OK"}
-Received: {"response":"OK"}
+Client Started
+7Sent: {"type":"set","value":"Hello world!","key":"1"} 
+Client Started
+Sent: {"type":"set","key":"person","value":{"name":"Elon Musk","car":{"model":"Tesla Roadster","year":"2018"},"rocket":{"name":"Falcon 9","launches":"87"}}}
+ 
+Client Started
+-Sent: {"type":"get","key":["person","name"]}
+ 
+Client Started
+GSent: {"type":"set","key":["person","rocket","launches"],"value":"88"}
+ 
+Client Started
+&Sent: {"type":"get","key":["person"]}
+ 
+Client Started
+6Sent: {"type":"delete","key":["person","car","year"]}
+ 
+Client Started
+&Sent: {"type":"get","key":["person"]}
+ 
+Client Started
+Sent: {"type":"exit"} 

@@ -31,6 +31,8 @@ subprojects {
         implementation "com.beust:jcommander:1.78"
         implementation 'com.google.code.gson:gson:2.8.6'
         testImplementation 'com.github.hyperskill:hs-test:release-SNAPSHOT'
+        implementation group: 'org.json', name: 'json', version: '20090211'
+        implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
     }
 
     configurations.all {

@@ -1,17 +1,5 @@
 type: edu
 files:
-- name: src/client/Main.java
-  visible: true
-  text: |
-    package client;
-
-    public class Main {
-
-        public static void main(String[] args) {
-            System.out.println("Hello, world!");
-        }
-    }
-  learner_created: false
 - name: src/server/Main.java
   visible: true
   text: |
@@ -291,17 +279,77 @@ files:
         }
     }
   learner_created: false
-- name: test/server/utils/UserInputTest.java
+- name: src/client/data/testGet.json
   visible: true
-  text: |
-    package server.utils;
-
-    import junit.framework.TestCase;
-
-    public class UserInputTest extends TestCase {
-
-    }
-  learner_created: false
+  text: '{"type":"get","key":"name"}'
+  learner_created: true
+- name: src/client/data/testSet.json
+  visible: true
+  text: '{"type":"set","key":"name","value":"Kate"}'
+  learner_created: true
+- name: src/client/data/testDelete.json
+  visible: true
+  text: '{"type":"delete","key":"name"}'
+  learner_created: true
+- name: src/server/data/db.json
+  visible: true
+  text: '{"text":"Some text here"}'
+  learner_created: true
+- name: src/client/Main.java
+  visible: true
+  learner_created: true
+- name: src/server/cli/commands/Command.java
+  visible: true
+  learner_created: true
+- name: src/server/cli/commands/DeleteCommand.java
+  visible: true
+  learner_created: true
+- name: src/server/cli/commands/GetCommand.java
+  visible: true
+  learner_created: true
+- name: src/server/cli/commands/SetCommand.java
+  visible: true
+  learner_created: true
+- name: src/server/cli/requests/Request.java
+  visible: true
+  learner_created: true
+- name: src/server/cli/requests/Response.java
+  visible: true
+  learner_created: true
+- name: src/server/cli/CommandExecutor.java
+  visible: true
+  learner_created: true
+- name: src/server/cli/CommandLineArgs.java
+  visible: true
+  learner_created: true
+- name: src/server/database/Database.java
+  visible: true
+  learner_created: true
+- name: src/client/data/db.json
+  visible: true
+  learner_created: true
+- name: src/server/ClientHandler.java
+  visible: true
+  learner_created: true
+- name: src/server/exceptions/KeyNotFoundException.java
+  visible: true
+  learner_created: true
+- name: src/server/exceptions/BadRequest.java
+  visible: true
+  learner_created: true
+- name: src/server/exceptions/EmptyFileException.java
+  visible: true
+  learner_created: true
+- name: src/server/exceptions/FileNotFoundException.java
+  visible: true
+  learner_created: true
+- name: src/server/data/data.json
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5495#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
+    Academy</a> to continue learning.
+  time: Sun, 26 Jun 2022 03:28:57 UTC
+record: 6

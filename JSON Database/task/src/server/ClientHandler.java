@@ -22,10 +22,11 @@ class ClientHandler extends Thread {
     private ServerSocket serverSocket;
     private boolean flag = false;
 
-    public ClientHandler(Socket s, DataInputStream dis, DataOutputStream dos, ServerSocket server) {
-        this.socket = s;
-        this.inputStream = dis;
-        this.outputStream = dos;
+    public ClientHandler(Socket socket, DataInputStream dataInputStream, DataOutputStream dataOutputStream
+            , ServerSocket server) {
+        this.socket = socket;
+        this.inputStream = dataInputStream;
+        this.outputStream = dataOutputStream;
         this.serverSocket = server;
     }
 

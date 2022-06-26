@@ -34,7 +34,7 @@ DataOutputStream output  = new DataOutputStream(socket.getOutputStream());</code
 
 <p>The server created a ServerSocket object that waits for client connections. When a client connects, the method <code class="language-java">server.accept() </code>returns the Socket connection to this client. After that, you can see the creation of <code class="language-java">DataInputStream</code> and <code class="language-java">DataOutputStream</code> objects: these are the input and output streams to this client, now from the server side. To receive data from the client, write <code class="language-java">input.readUTF()</code>. To send data to the client, write <code class="language-java">output.writeUTF(stringText)</code>. The server should stop after responding to the client.</p>
 
-<p>Note: the server and the client are different programs that run separately. Your server should run from the main method of the <em>/server/client.Main</em> class, and the client should run from the main method of the <em>/client/client.Main</em> class. To test your program you should run the server first so a client can connect to the server.</p>
+<p>Note: the server and the client are different programs that run separately. Your server should run from the main method of the <em>/server/Main</em> class, and the client should run from the main method of the <em>/client/Main</em> class. To test your program you should run the server first so a client can connect to the server.</p>
 
 <h5 id="example" style="text-align: center;">Example</h5>
 

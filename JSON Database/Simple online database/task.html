@@ -16,7 +16,7 @@
 
 <p><code class="java">-t</code> is the type of the request, and <code class="java">-i</code> is the index of the cell. <code class="java">-m</code> is the value to save in the database: you only need it in case of a <code class="java">set</code> request.</p>
 
-<p>The server and the client are different programs that run separately. Your server should run from the main method of the <em>/server/client.Main</em> class, and the client should run from the main method of the <em>/client/client.Main</em> class.</p>
+<p>The server and the client are different programs that run separately. Your server should run from the main method of the <em>/server/Main</em> class, and the client should run from the main method of the <em>/client/Main</em> class.</p>
 
 <h5 id="example" style="text-align: center;">Example</h5>
 
@@ -24,44 +24,44 @@
 
 <p>Starting the server:</p>
 
-<pre><code class="language-no-highlight">&gt; java client.Main
+<pre><code class="language-no-highlight">&gt; java Main
 Server started!</code></pre>
 
 <p>Starting the clients:</p>
 
-<pre><code class="language-no-highlight">&gt; java client.Main -t get -i 1
+<pre><code class="language-no-highlight">&gt; java Main -t get -i 1
 Client started!
 Sent: get 1
 Received: ERROR</code></pre>
 
-<pre><code class="language-no-highlight">&gt; java client.Main -t set -i 1 -m "Hello world!"
+<pre><code class="language-no-highlight">&gt; java Main -t set -i 1 -m "Hello world!"
 Client started!
 Sent: set 1 Hello world!
 Received: OK</code></pre>
 
-<pre><code class="language-no-highlight">&gt; java client.Main -t set -i 1 -m HelloWorld!
+<pre><code class="language-no-highlight">&gt; java Main -t set -i 1 -m HelloWorld!
 Client started!
 Sent: set 1 HelloWorld!
 Received: OK
 </code></pre>
 
-<pre><code class="language-no-highlight">&gt; java client.Main -t get -i 1
+<pre><code class="language-no-highlight">&gt; java Main -t get -i 1
 Client started!
 Sent: get 1
 Received: HelloWorld!
 </code></pre>
 
-<pre><code class="language-no-highlight">&gt; java client.Main -t delete -i 1
+<pre><code class="language-no-highlight">&gt; java Main -t delete -i 1
 Client started!
 Sent: delete 1
 Received: OK</code></pre>
 
-<pre><code class="language-no-highlight">&gt; java client.Main -t get -i 1
+<pre><code class="language-no-highlight">&gt; java Main -t get -i 1
 Client started!
 Sent: get 1
 Received: ERROR</code></pre>
 
-<pre><code class="language-no-highlight">&gt; java client.Main -t exit
+<pre><code class="language-no-highlight">&gt; java Main -t exit
 Client started!
 Sent: exit
 Received: OK</code></pre>

@@ -15,8 +15,8 @@ public class Request {
     @Parameter(names = {"-v", "--value"}, description = "The text value to add")
     private JsonElement value;
 
-    @Parameter(names = {"-in", "--commandfromfile"}, description = "The text with commands from file")
-    private String commandfromfile;
+    @Parameter(names = {"-in", "--commandFile"}, description = "The text with commands from file")
+    private String commandFile;
 
 
     public Request() {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-26T03:28:56" hostname="PC" time="0.422">
+<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-26T15:05:32" hostname="PC" time="0.42">
   <properties/>
-  <testcase name="start" classname="JsonDatabaseTest" time="0.422"/>
+  <testcase name="start" classname="JsonDatabaseTest" time="0.42"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 Server started!

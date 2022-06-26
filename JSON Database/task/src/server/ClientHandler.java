@@ -19,7 +19,7 @@ class ClientHandler extends Thread {
     final Socket socket;
     final DataInputStream inputStream;
     final DataOutputStream outputStream;
-    private ServerSocket serverSocket;
+    private final ServerSocket serverSocket;
     private boolean flag = false;
 
     public ClientHandler(Socket socket, DataInputStream dataInputStream, DataOutputStream dataOutputStream
